@@ -108,7 +108,12 @@ end_packet_transmission_event(Simulation_Run_Ptr simulation_run, void * link)
    * See if there is are packets waiting in the buffer. If so, take the next one
    * out and transmit it immediately.
   */
-
+#ifdef RUN_SAME_AS_Q5
+  if(fifoqueue_size(data->buffer) > 0) {
+    next_packet = (Packet_Ptr) fifoqueue_get(data->buffer);
+    start_transmission_on_link(simulation_run, next_packet, link);
+  }
+#else
   if(fifoqueue_size(data->buffer_2) > 0) {//if voice not empty
     next_packet = (Packet_Ptr) fifoqueue_get(data->buffer_2);
     start_transmission_on_link_sw2(simulation_run, next_packet, link);
@@ -117,6 +122,7 @@ end_packet_transmission_event(Simulation_Run_Ptr simulation_run, void * link)
     next_packet = (Packet_Ptr) fifoqueue_get(data->buffer);
     start_transmission_on_link(simulation_run, next_packet, link);
   }
+#endif
 }
 
 void
@@ -151,6 +157,13 @@ end_packet_transmission_event_sw2(Simulation_Run_Ptr simulation_run, void * link
    * out and transmit it immediately.
   */
 
+
+#ifdef RUN_SAME_AS_Q5
+  if(fifoqueue_size(data->buffer_2) > 0) {
+    next_packet = (Packet_Ptr) fifoqueue_get(data->buffer_2);
+    start_transmission_on_link_sw2(simulation_run, next_packet, link);
+  }
+#else
   if(fifoqueue_size(data->buffer_2) > 0) {//if voice not empty
     next_packet = (Packet_Ptr) fifoqueue_get(data->buffer_2);
     start_transmission_on_link_sw2(simulation_run, next_packet, link);
@@ -159,6 +172,7 @@ end_packet_transmission_event_sw2(Simulation_Run_Ptr simulation_run, void * link
     next_packet = (Packet_Ptr) fifoqueue_get(data->buffer);
     start_transmission_on_link(simulation_run, next_packet, link);
   }
+#endif
 }
 
 /*

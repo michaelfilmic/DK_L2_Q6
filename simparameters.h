@@ -30,27 +30,27 @@
 //#define no_data_event
 //#define no_voice_event
 
-#define FAST_RUN
+//#define FAST_RUN
 //#define NO_CSV_OUTPUT
+//#define RUN_SAME_AS_Q5
 
 #define PACKET_ARRIVAL_RATE_VOICE 50 
 #ifdef FAST_RUN
 
-#define PACKET_ARRIVAL_RATE 10, 12 
+#define PACKET_ARRIVAL_RATE 10 
 #define LINK_BIT_RATE 1E6 
 #define RUNLENGTH 30 /* packets */
             /* Comma separated list of random seeds to run. */
-#define RANDOM_SEED_LIST 400050636, 400099173, 225
+#define RANDOM_SEED_LIST 400050636
 
 #else
 
-#define PACKET_ARRIVAL_RATE 400, 500, 600 /* packets per second */
+#define PACKET_ARRIVAL_RATE 1, 5, 10, 15, 18, 20, 21 ,23  /* packets per second */
 #define LINK_BIT_RATE 1e6 /* bits per second */
-#define RUNLENGTH 10e6 /* packets */
+#define RUNLENGTH 1e3 /* packets */
 
 /* Comma separated list of random seeds to run. */
-#define RANDOM_SEED_LIST 400050636, 400099173, 225, 766, 590, 309, 519, 430, 638, 126 
-
+#define RANDOM_SEED_LIST 400050636, 400099173, 225
 #endif //FAST_RUN
 
 

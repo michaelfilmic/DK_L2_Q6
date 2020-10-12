@@ -69,7 +69,7 @@ main(void)
   #ifndef NO_CSV_OUTPUT
   // create a csv file
   FILE* fp;
-  char data_set_name[] = "./Q5.csv";
+  char data_set_name[] = "./Q6.csv";
   //file IO
 
   fp = fopen(data_set_name, "w");
