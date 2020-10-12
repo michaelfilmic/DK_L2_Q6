@@ -35,7 +35,7 @@
 #define IGNORE(x)
 
 /* Uncomment the next statement to activate trace. */
-//#define TRACE_ON
+#define TRACE_ON
 
 #ifdef TRACE_ON
 #define TRACE DO

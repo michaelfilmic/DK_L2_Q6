@@ -38,7 +38,7 @@
 
 #define PACKET_ARRIVAL_RATE 10, 12 
 #define LINK_BIT_RATE 1E6 
-#define RUNLENGTH 30 /* packets */
+#define RUNLENGTH 3 /* packets */
             /* Comma separated list of random seeds to run. */
 #define RANDOM_SEED_LIST 400050636, 400099173, 225
 

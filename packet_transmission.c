@@ -147,8 +147,8 @@ end_packet_transmission_event_sw2(Simulation_Run_Ptr simulation_run, void * link
    * out and transmit it immediately.
   */
 
-  if(fifoqueue_size(data->buffer_2) > 0) {
-    next_packet = (Packet_Ptr) fifoqueue_get(data->buffer_2);
+  if(fifoqueue_size(data->buffer) > 0) {
+    next_packet = (Packet_Ptr) fifoqueue_get(data->buffer);
     start_transmission_on_link_sw2(simulation_run, next_packet, link);
   }
 }
